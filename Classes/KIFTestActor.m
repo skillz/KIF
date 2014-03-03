@@ -13,6 +13,7 @@
 #import <dlfcn.h>
 #import <objc/runtime.h>
 #import "UIApplication-KIFAdditions.h"
+#import "SenTestClassEnumeratorFix.h"
 
 @implementation KIFTestActor
 
@@ -28,6 +29,7 @@
         }
         
         [UIApplication swizzleRunLoop];
+        XTApplySenTestClassEnumeratorFix();
     }
 }
 
@@ -125,7 +127,7 @@
 
 #pragma mark Class Methods
 
-static NSTimeInterval KIFTestStepDefaultTimeout = 10.0;
+static NSTimeInterval KIFTestStepDefaultTimeout = 30.0;
 
 + (NSTimeInterval)defaultTimeout;
 {
