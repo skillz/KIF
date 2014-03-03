@@ -313,7 +313,7 @@
         KIFTestWaitCondition([actual isEqualToString:expected], error, @"Failed to get text \"%@\" in field; instead, it was \"%@\"", expected, actual);
         
         return KIFTestStepResultSuccess;
-    } timeout:1.0];
+    } timeout:5.0]; // was 1.0
 }
 
 
@@ -475,7 +475,7 @@
 
 - (void)dismissPopover
 {
-    const NSTimeInterval tapDelay = 0.05;
+    const NSTimeInterval tapDelay = 0.20; // was .05
     UIWindow *window = [[UIApplication sharedApplication] dimmingViewWindow];
     if (!window) {
         [self failWithError:[NSError KIFErrorWithFormat:@"Failed to find any dimming views in the application"] stopTest:YES];
