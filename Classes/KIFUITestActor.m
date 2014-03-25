@@ -543,7 +543,8 @@
 
 - (void)tapRowAtIndexPath:(NSIndexPath *)indexPath inTableViewWithAccessibilityIdentifier:(NSString *)identifier
 {
-    UITableView *tableView;
+    UITableView *tableView = nil;
+    
     [self waitForAccessibilityElement:NULL view:&tableView withIdentifier:identifier tappable:NO];
     [self tapRowAtIndexPath:indexPath inTableView:tableView];
 }
